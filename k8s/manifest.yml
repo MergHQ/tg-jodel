@@ -21,4 +21,4 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: jodel-lurker-secrets
-                  key: ALKO_BOT_TOKEN
+                  key: BOT_TOKEN
