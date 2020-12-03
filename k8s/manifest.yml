@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegram-jodel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telegram-jodel
+  template:
+    metadata:
+      labels:
+        app: telegram-jodel
+    spec:
+      containers:
+        - name: telegram-jodel
+          image: registry.digitalocean.com/merg-registry/telegram-jodel:latest
+          env:
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jodel-lurker-secrets
+                  key: ALKO_BOT_TOKEN
